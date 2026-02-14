@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Health Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+    <div class="logo"> AI Health</div>
+    <div id="user-display" class="hidden">
+        <span id="header-username"></span>
+        <button id="profile-btn" style="margin-right: 10px; background: none; color: #007bff; border: none; font-weight: bold; cursor: pointer;">Profile</button>
+        <button id="logout-btn" onclick="location.reload()">Exit</button>
+    </div>
+</header>
+
+<main id="main-content">
+
+    <section id="landing-page" class="view active centered-view">
+        <div class="card">
+            <h1>Welcome Back</h1>
+            <p>Enter your username to access your AI-generated health insights.</p>
+            <div class="input-group">
+                <input type="text" id="username-input" placeholder="Username">
+                <button id="login-btn">Login</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="questionnaire-page" class="view hidden centered-view">
+        <div class="card" style="max-width: 600px; text-align: left;">
+            <h2 style="text-align: center;">Profile & Goals</h2>
+            <form id="quest-form">
+
+                <h4 style="margin-top: 0;">Personal Details</h4>
+                <div class="form-row">
+                    <label>Age <input type="number" name="age" required placeholder="30"></label>
+                    <label>Gender
+                        <select name="gender">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </label>
+                </div>
+
+                <h4>Health Context</h4>
+                <div class="form-row">
+                    <label>Current Stress Level
+                        <select name="stress_level">
+                            <option value="low">Low (Relaxed)</option>
+                            <option value="medium">Medium (Manageable)</option>
+                            <option value="high">High (Overwhelmed)</option>
+                        </select>
+                    </label>
+                    <label>Dietary Focus
+                        <select name="diet_focus">
+                            <option value="none">No specific diet</option>
+                            <option value="keto">Keto / Low Carb</option>
+                            <option value="vegan">Vegan / Plant-based</option>
+                            <option value="balanced">Balanced / Mediterranean</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <label>Current Activity Level
+                        <select name="activity_level">
+                            <option value="sedentary">Sedentary (Office job)</option>
+                            <option value="moderate">Moderate (1-3x workout/week)</option>
+                            <option value="athlete">Athlete (High performance)</option>
+                        </select>
+                    </label>
+                    <label>Main Focus Goal
+                        <input type="text" name="goals" placeholder="e.g. Lower cortisol, run 5k" required>
+                    </label>
+                </div>
+
+                <h4>Your Numbers</h4>
+                <div class="form-row">
+                    <label>Current Weight (kg) <input type="number" name="current_weight" required placeholder="80"></label>
+                    <label>Target Weight (kg) <input type="number" name="target_weight" required placeholder="75"></label>
+                </div>
+                <div class="form-row">
+                    <label>Daily Step Goal <input type="number" name="step_goal" required placeholder="10000"></label>
+                    <label>Sleep Goal (Hours) <input type="number" name="sleep_goal" required placeholder="8"></label>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                <h4>Dashboard Interface</h4>
+
+                <div class="form-row">
+                    <label>Vision / Accessibility
+                        <select name="glasses">
+                            <option value="no">Normal Vision</option>
+                            <option value="yes">I wear glasses (Larger Text)</option>
+                        </select>
+                    </label>
+                    <label>Data Density
+                        <select name="complexity">
+                            <option value="simple">Minimalist (Focus on 1-2 things)</option>
+                            <option value="detailed">Cockpit Mode (Show me everything)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <label>Dashboard Vibe
+                        <select name="ui_mood">
+                            <option value="professional">Professional (Clean, Serious)</option>
+                            <option value="friendly">Friendly (Encouraging, Warm)</option>
+                            <option value="gamified">Gamified (Emojis, Fun)</option>
+                        </select>
+                    </label>
+                    <label>Preferred Data Style
+                        <select name="chart_pref">
+                            <option value="charts">Visual Charts (Trends)</option>
+                            <option value="stats">Big Numbers (Snapshots)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-actions" style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" id="cancel-btn" class="secondary-btn hidden">Cancel</button>
+
+                    <button type="submit" id="submit-btn" style="flex: 1;">Save Profile & Generate</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="dashboard-page" class="view hidden">
+        <div class="dash-controls">
+            <h2 id="welcome-msg">Dashboard</h2>
+            <button id="refresh-btn">✨ Regenerate Layout</button>
+            <button id="generate-report-btn" class="report-btn">📊 Generate Report</button>
+
+        </div>
+        <div id="suggestion-banner" class="hidden"></div>
+        <div id="dashboard-grid">
+        </div>
+
+        <div class="feedback-ui">
+            <p>Was this helpful?</p>
+            <button onclick="saveFeedback('thumbs-up')">👍</button>
+            <button onclick="saveFeedback('thumbs-down')">👎</button>
+        </div>
+    </section>
+
+</main>
+
+<footer class="app-footer">
+    <p>AI Health App &copy; 2026 &bull; SDU Odense</p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+<div id="report-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content-wrapper">
+        <div class="modal-content">
+            <button id="close-report-btn" class="modal-close">×</button>
+            <div id="report-content"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

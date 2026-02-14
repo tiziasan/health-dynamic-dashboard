@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "id": "3170",
+      "username": "tiziano",
+      "age": "30",
+      "gender": "male",
+      "stress_level": "low",
+      "diet_focus": "none",
+      "activity": "sedentary",
+      "goals": "lose weight",
+      "current_weight": "80",
+      "target_weight": "85",
+      "step_goal": "10000",
+      "sleep_goal": "8",
+      "glasses": "no",
+      "complexity": "simple",
+      "ui_mood": "professional",
+      "chart_pref": "charts",
+      "history": [
+        {
+          "date": "2026-02-05T15:18:31.710Z",
+          "type": "widget_preference",
+          "target_metric": "today_steps",
+          "sentiment": "dislike"
+        },
+        {
+          "date": "2026-02-05T15:18:32.994Z",
+          "type": "widget_preference",
+          "target_metric": "today_resting_hr",
+          "sentiment": "dislike"
+        }
+      ],
+      "layout": [
+        {
+          "type": "chart",
+          "title": "Weekly Steps",
+          "size": "wide",
+          "dataSource": "steps_weekly",
+          "chartType": "line"
+        },
+        {
+          "type": "stat",
+          "title": "Walking Average Heart Rate",
+          "size": "normal",
+          "dataSource": "today_walking_hr"
+        },
+        {
+          "type": "stat",
+          "title": "Active Exercise Time",
+          "size": "normal",
+          "dataSource": "today_exercise_minutes"
+        },
+        {
+          "type": "stat",
+          "title": "Stand Hours Completed",
+          "size": "normal",
+          "dataSource": "today_stand_up_time"
+        },
+        {
+          "type": "chart",
+          "title": "Sleep Duration Trend",
+          "size": "wide",
+          "dataSource": "sleep_weekly",
+          "chartType": "bar"
+        },
+        {
+          "type": "chart",
+          "title": "Heart Rate Variability",
+          "size": "normal",
+          "dataSource": "heart_rate_daily",
+          "chartType": "line"
+        },
+        {
+          "type": "stat",
+          "title": "Stages of Sleep",
+          "size": "normal",
+          "dataSource": "today_time_sleep"
+        },
+        {
+          "type": "chart",
+          "title": "Calories Burned Today",
+          "size": "wide",
+          "dataSource": "calories_burned",
+          "chartType": "bar"
+        },
+        {
+          "type": "chart",
+          "title": "Weight Trend",
+          "size": "wide",
+          "dataSource": "weight_trend",
+          "chartType": "line"
+        },
+        {
+          "type": "chart",
+          "title": "Stress Level Throughout the Day",
+          "size": "wide",
+          "dataSource": "stress_hourly",
+          "chartType": "line"
+        }
+      ],
+      "suggestion": {
+        "text": "Keep moving! Aim for 10,000 steps today.",
+        "nudge": "Increasing your daily step count will help you burn more calories and contribute to your weight loss goals.",
+        "explainability": "I chose this layout because your current focus is on activity, and these metrics provide actionable insights that align with your weight loss goal."
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Generated dash board",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node js/server.js",
+    "db": "json-server --watch db.json --port 3000"
+  },
+  "private": true,
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  }
+}
