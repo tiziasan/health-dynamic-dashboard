@@ -51,7 +51,7 @@ http://localhost:3001
 - `js/llm.js` - LLM integration
 - `js/render.js` - Dashboard rendering
 - `js/drag.js` - Drag and drop functionality
-- `js/data.js` - Data management
+- `js/data` - Users Data management
 - `js/api.js` - API utilities
 - `db.json` - User data and dashboard configurations
 - `style.css` - Application styles
