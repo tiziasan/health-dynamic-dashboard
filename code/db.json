@@ -3,14 +3,14 @@
     {
       "id": "3170",
       "username": "sarah",
-      "age": "30",
-      "gender": "Female",
+      "age": "31",
+      "gender": "female",
       "stress_level": "low",
       "diet_focus": "none",
-      "activity": "sedentary",
+      "activity": "moderate",
       "goals": "lose weight",
-      "current_weight": "65",
-      "target_weight": "60",
+      "current_weight": "80",
+      "target_weight": "85",
       "step_goal": "10000",
       "sleep_goal": "8",
       "glasses": "no",
@@ -34,20 +34,14 @@
       "layout": [
         {
           "type": "chart",
-          "title": "Weekly Steps",
+          "title": "Steps — Weekly Trend",
           "size": "wide",
           "dataSource": "steps_weekly",
           "chartType": "line"
         },
         {
           "type": "stat",
-          "title": "Walking Average Heart Rate",
-          "size": "normal",
-          "dataSource": "today_walking_hr"
-        },
-        {
-          "type": "stat",
-          "title": "Active Exercise Time",
+          "title": "Active Exercise (min)",
           "size": "normal",
           "dataSource": "today_exercise_minutes"
         },
@@ -58,31 +52,47 @@
           "dataSource": "today_stand_up_time"
         },
         {
-          "type": "chart",
-          "title": "Sleep Duration Trend",
-          "size": "wide",
-          "dataSource": "sleep_weekly",
-          "chartType": "bar"
-        },
-        {
-          "type": "chart",
-          "title": "Heart Rate Variability",
+          "type": "stat",
+          "title": "Floors Climbed",
           "size": "normal",
-          "dataSource": "heart_rate_daily",
-          "chartType": "line"
+          "dataSource": "today_climbed_floor"
         },
         {
           "type": "stat",
-          "title": "Stages of Sleep",
+          "title": "Walking Speed (km/h)",
           "size": "normal",
-          "dataSource": "today_time_sleep"
+          "dataSource": "walking_speed"
+        },
+        {
+          "type": "stat",
+          "title": "Walking Avg HR (bpm)",
+          "size": "normal",
+          "dataSource": "today_walking_hr"
+        },
+        {
+          "type": "stat",
+          "title": "VO2 Max",
+          "size": "normal",
+          "dataSource": "vo2_max"
+        },
+        {
+          "type": "stat",
+          "title": "Heart Rate Variability (ms)",
+          "size": "normal",
+          "dataSource": "today_hr_variability"
         },
         {
           "type": "chart",
-          "title": "Calories Burned Today",
+          "title": "Stress — Hourly",
           "size": "wide",
-          "dataSource": "calories_burned",
+          "dataSource": "stress_hourly",
           "chartType": "bar"
+        },
+        {
+          "type": "heatmap",
+          "title": "Anxiety / Stress Consistency",
+          "size": "normal",
+          "dataSource": "anxiety_heatmap"
         },
         {
           "type": "chart",
@@ -92,18 +102,558 @@
           "chartType": "line"
         },
         {
+          "type": "stacked_bar",
+          "title": "Sleep Quality Breakdown",
+          "size": "normal",
+          "dataSource": "sleep_quality_breakdown",
+          "chartType": "bar"
+        },
+        {
+          "type": "timeline",
+          "title": "Recent Activities & Prompts",
+          "size": "normal",
+          "dataSource": "recent_activities"
+        }
+      ],
+      "suggestion": {
+        "text": "Drink 250 ml, then brisk 10‑min walk",
+        "nudge": "A short brisk walk raises energy expenditure and helps create a daily calorie deficit for weight loss; drinking water before/after reduces hunger cues and supports performance and recovery. Combining a hydration nudge with immediate activity increases the chance you follow through.",
+        "explainability": "I chose this layout to prioritize ACTIONABLE activity and stress insights for your active (day) phase while respecting your dislikes. Because you asked to focus on activity and stress, the top-level visuals are activity (weekly steps trend) and stress (hourly) charts; immediate, simple stats (exercise minutes, stand hours, floors) sit nearby for quick decision-making. Weight trend is included (required for a weight-loss goal). I avoided the explicitly disliked metrics (today_steps, today_resting_hr) and kept the UI professional and chart-forward for easy interpretation."
+      }
+    },
+    {
+      "username": "elena",
+      "age": "26",
+      "gender": "female",
+      "stress_level": "low",
+      "diet_focus": "none",
+      "activity": "athlete",
+      "goals": "working hard",
+      "current_weight": "50",
+      "target_weight": "50",
+      "step_goal": "10000",
+      "sleep_goal": "8",
+      "glasses": "no",
+      "complexity": "simple",
+      "ui_mood": "professional",
+      "chart_pref": "stats",
+      "history": [
+        {
+          "date": "2026-04-29T10:25:50.166Z",
+          "type": "widget_preference",
+          "target_metric": "vo2_max",
+          "sentiment": "dislike"
+        }
+      ],
+      "id": "dmPRu8-nxKA",
+      "layout": [
+        {
+          "type": "stat",
+          "title": "Today — Exercise Minutes",
+          "size": "normal",
+          "dataSource": "today_exercise_minutes"
+        },
+        {
+          "type": "gauge",
+          "title": "HRV (Today)",
+          "size": "normal",
+          "dataSource": "today_hr_variability"
+        },
+        {
           "type": "chart",
-          "title": "Stress Level Throughout the Day",
-          "size": "wide",
+          "title": "Stress — Hourly",
+          "size": "normal",
           "dataSource": "stress_hourly",
+          "chartType": "line"
+        },
+        {
+          "type": "stat",
+          "title": "Today — Steps",
+          "size": "wide",
+          "dataSource": "today_steps"
+        },
+        {
+          "type": "chart",
+          "title": "Steps — Weekly",
+          "size": "wide",
+          "dataSource": "steps_weekly",
+          "chartType": "bar"
+        },
+        {
+          "type": "timeline",
+          "title": "Recent Activities (detailed)",
+          "size": "wide",
+          "dataSource": "recent_activities"
+        },
+        {
+          "type": "heatmap",
+          "title": "Anxiety Heatmap — Past Week",
+          "size": "wide",
+          "dataSource": "anxiety_heatmap"
+        },
+        {
+          "type": "stat",
+          "title": "Resting Heart Rate (bpm)",
+          "size": "normal",
+          "dataSource": "today_resting_hr"
+        },
+        {
+          "type": "stat",
+          "title": "Walking Heart Rate — Avg (bpm)",
+          "size": "normal",
+          "dataSource": "today_walking_hr"
+        },
+        {
+          "type": "stat",
+          "title": "Stand Hours Completed",
+          "size": "normal",
+          "dataSource": "today_stand_up_time"
+        },
+        {
+          "type": "stacked_bar",
+          "title": "Sleep Quality Breakdown",
+          "size": "normal",
+          "dataSource": "sleep_quality_breakdown"
+        },
+        {
+          "type": "chart",
+          "title": "Calories Burned — Daily",
+          "size": "normal",
+          "dataSource": "calories_burned",
           "chartType": "line"
         }
       ],
       "suggestion": {
-        "text": "Keep moving! Aim for 10,000 steps today.",
-        "nudge": "Increasing your daily step count will help you burn more calories and contribute to your weight loss goals.",
-        "explainability": "I chose this layout because your current focus is on activity, and these metrics provide actionable insights that align with your weight loss goal."
+        "text": "Take a focused 10‑minute brisk walk",
+        "nudge": "A short bout of moderate walking right now will raise step count, increase circulation (raising walking HR), and often improves HRV and lowers perceived stress within an hour — giving an immediate productivity boost during your active phase. Also sip 200–300 ml water before or after the walk to support performance and alertness.",
+        "explainability": "I prioritized the three metrics you moved to the top (exercise minutes, HRV, hourly stress) and kept them highly visible. Widgets you spent longest hovering over were expanded to wide, detailed views (weekly steps, recent activities, anxiety heatmap). I removed the disliked metric (vo2_max). The layout emphasizes actionable activity metrics (steps, exercise minutes, stand hours) and stress signals so you can act quickly during the day; styling stays mostly in concise stats for your preferred professional, simple vibe while providing a few expanded charts where you dig deepest."
+      }
+    },
+    {
+      "username": "james",
+      "age": "67",
+      "gender": "male",
+      "stress_level": "low",
+      "diet_focus": "none",
+      "activity": "sedentary",
+      "goals": "move a bit more",
+      "current_weight": "85",
+      "target_weight": "80",
+      "step_goal": "10000",
+      "sleep_goal": "8",
+      "glasses": "yes",
+      "complexity": "detailed",
+      "ui_mood": "friendly",
+      "chart_pref": "charts",
+      "history": [],
+      "id": "FklPA3-ATCU",
+      "layout": [
+        {
+          "type": "stat",
+          "title": "Steps (Today)",
+          "size": "wide",
+          "dataSource": "today_steps"
+        },
+        {
+          "type": "chart",
+          "title": "Steps — Last 7 Days",
+          "size": "wide",
+          "dataSource": "steps_weekly",
+          "chartType": "line"
+        },
+        {
+          "type": "stat",
+          "title": "Active Minutes (Today)",
+          "size": "normal",
+          "dataSource": "today_exercise_minutes"
+        },
+        {
+          "type": "gauge",
+          "title": "Stand Hours Progress",
+          "size": "normal",
+          "dataSource": "today_stand_up_time"
+        },
+        {
+          "type": "chart",
+          "title": "Stress — Hourly Today",
+          "size": "wide",
+          "dataSource": "stress_hourly",
+          "chartType": "line"
+        },
+        {
+          "type": "heatmap",
+          "title": "Anxiety / Stress Heatmap (Context)",
+          "size": "normal",
+          "dataSource": "anxiety_heatmap"
+        },
+        {
+          "type": "stat",
+          "title": "Resting Heart Rate",
+          "size": "normal",
+          "dataSource": "today_resting_hr"
+        },
+        {
+          "type": "stat",
+          "title": "Walking HR (Avg)",
+          "size": "normal",
+          "dataSource": "today_walking_hr"
+        },
+        {
+          "type": "stat",
+          "title": "Heart Rate Variability (HRV)",
+          "size": "normal",
+          "dataSource": "today_hr_variability"
+        },
+        {
+          "type": "chart",
+          "title": "Weight Trend",
+          "size": "normal",
+          "dataSource": "weight_trend",
+          "chartType": "line"
+        },
+        {
+          "type": "stacked_bar",
+          "title": "Sleep Quality Breakdown",
+          "size": "normal",
+          "dataSource": "sleep_quality_breakdown"
+        },
+        {
+          "type": "timeline",
+          "title": "Recent Activities",
+          "size": "wide",
+          "dataSource": "recent_activities"
+        }
+      ],
+      "suggestion": {
+        "text": "Take a brisk 10-minute walk now",
+        "nudge": "A short, brisk walk raises your step count and heart rate enough to boost daily energy expenditure (NEAT) and improve circulation. Repeating 10-minute walks across the day is proven to increase overall activity, reduce sedentary time, and can improve HRV and mood — all helpful for moving toward your weight goal.",
+        "explainability": "I chose this layout to prioritize ACTIONABLE activity metrics for your active phase: immediate numbers (stats/gauges) are front-and-center so you can see current state at a glance, while charts show trends for planning. Steps, exercise minutes and stand hours are prioritized (daytime activity focus). Stress is surfaced with an hourly chart and a heatmap so you can spot low-risk windows for movement. Weight trend and sleep breakdown are included because you track weight and prefer charts. I used stat/gauge widgets for live user stats and chart/stacked_bar/heatmap/timeline for trends, composition, consistency and recent actions to match your 'detailed' preference and friendly UI vibe (readable at-a-glance numbers for glasses). All widget types and data sources obeyed the data-source rules (chart widgets use only allowed chart data keys; stat/gauge widgets use approved user_stats keys)."
+      }
+    },
+    {
+      "username": "marcus",
+      "age": "45",
+      "gender": "male",
+      "stress_level": "medium",
+      "diet_focus": "none",
+      "activity": "sedentary",
+      "goals": "lose weight",
+      "current_weight": "85",
+      "target_weight": "80",
+      "step_goal": "10000",
+      "sleep_goal": "8",
+      "glasses": "no",
+      "complexity": "detailed",
+      "ui_mood": "friendly",
+      "chart_pref": "charts",
+      "history": [
+        {
+          "date": "2026-04-29T11:15:09.194Z",
+          "type": "widget_preference",
+          "target_metric": "sleep_quality_breakdown",
+          "sentiment": "dislike"
+        }
+      ],
+      "id": "DP2JwquRiv8",
+      "layout": [
+        {
+          "type": "stat",
+          "title": "Floors Climbed (Today)",
+          "size": "normal",
+          "dataSource": "today_climbed_floor"
+        },
+        {
+          "type": "gauge",
+          "title": "VO2 Max",
+          "size": "normal",
+          "dataSource": "vo2_max"
+        },
+        {
+          "type": "stat",
+          "title": "Stand Hours Completed",
+          "size": "normal",
+          "dataSource": "today_stand_up_time"
+        },
+        {
+          "type": "stat",
+          "title": "Resting Heart Rate",
+          "size": "wide",
+          "dataSource": "today_resting_hr"
+        },
+        {
+          "type": "chart",
+          "title": "Weight Trend",
+          "size": "normal",
+          "dataSource": "weight_trend",
+          "chartType": "line"
+        },
+        {
+          "type": "chart",
+          "title": "Steps — Weekly Trend",
+          "size": "normal",
+          "dataSource": "steps_weekly",
+          "chartType": "bar"
+        },
+        {
+          "type": "chart",
+          "title": "Stress — Hourly",
+          "size": "wide",
+          "dataSource": "stress_hourly",
+          "chartType": "bar"
+        },
+        {
+          "type": "stat",
+          "title": "Exercise Minutes (Today)",
+          "size": "normal",
+          "dataSource": "today_exercise_minutes"
+        },
+        {
+          "type": "heatmap",
+          "title": "Anxiety Heatmap (Expanded)",
+          "size": "wide",
+          "dataSource": "anxiety_heatmap"
+        },
+        {
+          "type": "stat",
+          "title": "Heart Rate Variability (HRV)",
+          "size": "normal",
+          "dataSource": "today_hr_variability"
+        },
+        {
+          "type": "stat",
+          "title": "Today's Steps",
+          "size": "wide",
+          "dataSource": "today_steps"
+        },
+        {
+          "type": "timeline",
+          "title": "Recent Activities",
+          "size": "normal",
+          "dataSource": "recent_activities"
+        },
+        {
+          "type": "chart",
+          "title": "Heart Rate — Today",
+          "size": "wide",
+          "dataSource": "heart_rate_daily",
+          "chartType": "line"
+        }
+      ],
+      "suggestion": {
+        "text": "Take a brisk 10-minute walk now",
+        "nudge": "A short brisk walk increases calorie burn (helping weight loss), raises step count and exercise minutes, and reduces stress by shifting autonomic balance — improving HRV and lowering resting heart rate over time.",
+        "explainability": "I prioritized the three metrics you pinned (steps, exercise minutes, heart-rate daily) at the top so they stay immediately actionable. I expanded the metrics you hovered longest (anxiety heatmap and resting HR) to wide/detailed views so you can inspect trends. I removed the sleep quality widget you asked to exclude, always included weight trends for your weight-loss goal, and emphasized activity and stress-related charts for this active phase of the day."
+      }
+    },
+    {
+      "username": "priya",
+      "age": "33",
+      "gender": "female",
+      "stress_level": "high",
+      "diet_focus": "balanced",
+      "activity": "moderate",
+      "goals": "fit exercise in the schedule",
+      "current_weight": "60",
+      "target_weight": "60",
+      "step_goal": "10000",
+      "sleep_goal": "7",
+      "glasses": "no",
+      "complexity": "detailed",
+      "ui_mood": "gamified",
+      "chart_pref": "charts",
+      "history": [],
+      "id": "sUBUpOQSbZw",
+      "layout": [
+        {
+          "type": "stat",
+          "title": "Steps — Today",
+          "size": "wide",
+          "dataSource": "today_steps"
+        },
+        {
+          "type": "stat",
+          "title": "Exercise Minutes — Today",
+          "size": "normal",
+          "dataSource": "today_exercise_minutes"
+        },
+        {
+          "type": "gauge",
+          "title": "Stress (HRV proxy)",
+          "size": "normal",
+          "dataSource": "today_hr_variability"
+        },
+        {
+          "type": "chart",
+          "title": "Weekly Steps",
+          "size": "wide",
+          "dataSource": "steps_weekly",
+          "chartType": "bar"
+        },
+        {
+          "type": "chart",
+          "title": "Stress — Hourly",
+          "size": "normal",
+          "dataSource": "stress_hourly",
+          "chartType": "line"
+        },
+        {
+          "type": "heatmap",
+          "title": "Anxiety Patterns (Consistency)",
+          "size": "normal",
+          "dataSource": "anxiety_heatmap"
+        },
+        {
+          "type": "chart",
+          "title": "Heart Rate — Daily",
+          "size": "normal",
+          "dataSource": "heart_rate_daily",
+          "chartType": "line"
+        },
+        {
+          "type": "stat",
+          "title": "Resting Heart Rate",
+          "size": "normal",
+          "dataSource": "today_resting_hr"
+        },
+        {
+          "type": "stat",
+          "title": "Walking — Avg HR",
+          "size": "normal",
+          "dataSource": "today_walking_hr"
+        },
+        {
+          "type": "gauge",
+          "title": "Cardio Fitness (VO2 Max)",
+          "size": "normal",
+          "dataSource": "vo2_max"
+        },
+        {
+          "type": "timeline",
+          "title": "Recent Activities (Quick Wins)",
+          "size": "wide",
+          "dataSource": "recent_activities"
+        },
+        {
+          "type": "stacked_bar",
+          "title": "Sleep Quality Breakdown",
+          "size": "normal",
+          "dataSource": "sleep_quality_breakdown"
+        },
+        {
+          "type": "radar",
+          "title": "Gait & Pace Snapshot",
+          "size": "normal",
+          "dataSource": "step_length"
+        }
+      ],
+      "suggestion": {
+        "text": "Take a 10‑minute brisk walk now",
+        "nudge": "Short, frequent brisk walks increase step totals, raise walking heart rate to boost calorie burn and VO2 engagement, and reduce acute stress through improved HRV and breathing — all in a low-friction slot you can fit into a busy day.",
+        "explainability": "I chose this layout to prioritize ACTIONABLE activity metrics for the daytime active phase: big emphasis on steps, exercise minutes and stress (HRV + stress hourly). Charts are used where you prefer visual data (weekly trends, hourly stress, heart-rate history). Stats and gauges deliver immediate, glanceable numbers (steps, resting/walking HR, exercise minutes, VO2). Heatmap and timeline support consistency and quick planning. Because no drag/drop or dwell data is available, the layout is static and gamified (clear goal metrics and progress visuals) to encourage quick interactions and micro‑workouts."
+      }
+    },
+    {
+      "username": "tyler",
+      "age": "22",
+      "gender": "male",
+      "stress_level": "medium",
+      "diet_focus": "balanced",
+      "activity": "moderate",
+      "goals": "improve sleep",
+      "current_weight": "70",
+      "target_weight": "70",
+      "step_goal": "10000",
+      "sleep_goal": "8",
+      "glasses": "yes",
+      "complexity": "simple",
+      "ui_mood": "gamified",
+      "chart_pref": "charts",
+      "history": [],
+      "id": "PjqB2-1NB8w",
+      "layout": [
+        {
+          "type": "stat",
+          "title": "Steps Today",
+          "size": "wide",
+          "dataSource": "today_steps"
+        },
+        {
+          "type": "chart",
+          "title": "Weekly Steps",
+          "size": "wide",
+          "dataSource": "steps_weekly",
+          "chartType": "bar"
+        },
+        {
+          "type": "gauge",
+          "title": "Stress Resilience (HRV)",
+          "size": "normal",
+          "dataSource": "today_hr_variability"
+        },
+        {
+          "type": "chart",
+          "title": "Stress (Hourly)",
+          "size": "normal",
+          "dataSource": "stress_hourly",
+          "chartType": "line"
+        },
+        {
+          "type": "stat",
+          "title": "Active (Exercise) Minutes",
+          "size": "normal",
+          "dataSource": "today_exercise_minutes"
+        },
+        {
+          "type": "stat",
+          "title": "Stand Hours Completed",
+          "size": "normal",
+          "dataSource": "today_stand_up_time"
+        },
+        {
+          "type": "stat",
+          "title": "Last Night Sleep (hrs)",
+          "size": "normal",
+          "dataSource": "today_time_sleep"
+        },
+        {
+          "type": "chart",
+          "title": "Sleep Trend (7 days)",
+          "size": "wide",
+          "dataSource": "sleep_weekly",
+          "chartType": "line"
+        },
+        {
+          "type": "stacked_bar",
+          "title": "Sleep Quality Breakdown",
+          "size": "normal",
+          "dataSource": "sleep_quality_breakdown"
+        },
+        {
+          "type": "heatmap",
+          "title": "Anxiety / Consistency Heatmap",
+          "size": "normal",
+          "dataSource": "anxiety_heatmap"
+        },
+        {
+          "type": "chart",
+          "title": "Heart Rate — Today",
+          "size": "normal",
+          "dataSource": "heart_rate_daily",
+          "chartType": "line"
+        },
+        {
+          "type": "timeline",
+          "title": "Recent Activities",
+          "size": "normal",
+          "dataSource": "recent_activities"
+        }
+      ],
+      "suggestion": {
+        "text": "Quick 10-min brisk walk + drink 250ml water",
+        "nudge": "A short brisk walk increases daytime activity, helps reduce sympathetic arousal, and uses light aerobic effort to lower stress and prime your body for deeper sleep later. Hydration supports circulation and cognitive clarity during activity. If your HRV is low right now, favor a brisk 10-minute walk and 3–5 deep belly breaths afterward to nudge parasympathetic recovery.",
+        "explainability": "I prioritized Activity (steps, exercise, stand hours) and Stress (HRV, hourly stress, anxiety heatmap) because the temporal context is DAY (active phase) and the strategy is to focus on activity and stress management. Sleep metrics (sleep duration, weekly trend, quality breakdown) are included because the user's stated goal is to improve sleep. The layout is intentionally simple (no drag/hover reliance), chart-forward (user prefers charts), and slightly gamified (clear progress and a gauge for HRV) to match the user's UI vibe. All stat/gauge widgets use permitted physiological data sources and all charts use approved chart data sources to comply with the data rules."
       }
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
