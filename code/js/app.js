@@ -2,7 +2,7 @@
 import { generateDashboardLayout,generateHealthReport } from './llm.js';
 import { renderDashboard, renderSuggestion } from './render.js';
 import { getUser, createUser, updateUser } from './api.js';
-import { MOCK_HEALTH_DATA } from './data.js';
+import { MOCK_HEALTH_DATA } from './data/data_tyler.js';
 
 
 // DOM Elements
