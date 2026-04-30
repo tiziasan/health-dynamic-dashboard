@@ -1,4 +1,8 @@
-# health-dynamic-dashboard
+# health-dynamic
+This repository contains the health dynamic dashboard code, the screenshot of the 6 users, the prompts list, and a video showing the installation of the tool.
+
+
+# health-dynamic-dashboard installation
 
 A dynamic health and fitness dashboard with AI-powered layout generation using OpenAI's API.
 
